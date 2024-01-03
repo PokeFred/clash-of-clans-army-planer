@@ -1,6 +1,6 @@
 <script lang="ts">
-    import Icon from "svelte-awesome"
-    import {faSmile} from "@fortawesome/free-solid-svg-icons/faSmile"
+    import Icon from 'svelte-awesome'
+    import { faSmile } from '@fortawesome/free-solid-svg-icons/faSmile'
 </script>
 
 <h1>Welcome to SvelteKit <Icon data={faSmile} /></h1>
