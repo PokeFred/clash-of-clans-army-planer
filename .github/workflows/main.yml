@@ -1,0 +1,23 @@
+name: Deployment
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    deploy:
+        name: Deploy
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v3
+            -   name: Deploy to Vercel
+                uses: amondnet/vercel-action@v25
+                with:
+                    vercel-token: ${{ secrets.VERCEL_TOKEN }}
+                    github-comment: false,
+                    vercel-org-id: ${{ secrets.VERCEL_SCOPE }}
+                    vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+                    scope: ${{ secrets.VERCEL_SCOPE }}
+                    alias-domains: ${{ secrets.VERCEL_URL }}
