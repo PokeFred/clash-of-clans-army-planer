@@ -1,7 +1,16 @@
 <script lang="ts">
-    import Icon from 'svelte-awesome'
-    import { faSmile } from '@fortawesome/free-solid-svg-icons/faSmile'
+    import { onMount } from 'svelte'
+
+    let text: string = ''
+    onMount(async () => {
+        const response: Response = await fetch('/', {
+            method: 'POST',
+        })
+        const data: string = await response.text()
+
+        text = data
+    })
+
 </script>
 
-<h1>Welcome to SvelteKit <Icon data={faSmile} /></h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<div>{text}</div>
